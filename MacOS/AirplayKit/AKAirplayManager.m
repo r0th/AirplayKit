@@ -11,8 +11,23 @@
 
 @implementation AKAirplayManager
 
-@synthesize delegate;
+@synthesize delegate, autoConnect;
 
+#pragma mark -
+#pragma mark Initialization
+
+- (id) init
+{
+	if(self = [super init])
+	{
+		self.autoConnect = YES;
+	}
+	
+	return self;
+}
+
+#pragma mark -
+#pragma mark Public Methods
 - (void) findDevices
 {
 	

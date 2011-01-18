@@ -11,7 +11,31 @@
 
 @implementation AKDevice
 
-@synthesize hostname, port;
+@synthesize hostname, port, delegate, connected;
+
+#pragma mark -
+#pragma mark Initialization
+
+- (id) init
+{
+	if(self = [super init])
+	{
+		connected = NO;
+	}
+	
+	return self;
+}
+
+#pragma mark -
+#pragma mark Public Methods
+
+- (void) sendRawMessage:(NSString *)message
+{
+	
+}
+
+#pragma mark -
+#pragma mark Cleanup
 
 - (void) dealloc
 {
