@@ -8,6 +8,7 @@
 
 #import <Cocoa/Cocoa.h>
 #import "AKDevice.h"
+#import "AsyncSocket.h"
 
 @class AKAirplayManager;
 
@@ -20,15 +21,19 @@
 @end
 
 
-@interface AKAirplayManager : NSObject
+@interface AKAirplayManager : NSObject <NSNetServiceBrowserDelegate, NSNetServiceDelegate>
 {
 @private
 	id <AKAirplayManagerDelegate> delegate;
 	BOOL autoConnect;
+	NSNetServiceBrowser *serviceBrowser;
+	AKDevice *connectedDevice;
+	NSMutableArray *foundServices;
 }
 
 @property (nonatomic, assign) id <AKAirplayManagerDelegate> delegate;
 @property (nonatomic) BOOL autoConnect; // Connects to the first found device automatically. Defaults to YES.
+@property (nonatomic, retain) AKDevice *connectedDevice;
 
 - (void) findDevices; // Searches for Airplay devices on the same wifi network.
 - (void) connectToDevice:(AKDevice *)device; // Connects to a found device.

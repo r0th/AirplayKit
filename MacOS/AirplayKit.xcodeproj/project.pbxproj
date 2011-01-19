@@ -11,7 +11,7 @@
 		1FA0BE8012E6531D0041C1C7 /* AirplayKitAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 1FA0BE7F12E6531D0041C1C7 /* AirplayKitAppDelegate.m */; };
 		1FA0BE8F12E6537D0041C1C7 /* AKAirplayManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 1FA0BE8E12E6537D0041C1C7 /* AKAirplayManager.m */; };
 		1FA0BEA312E655AF0041C1C7 /* AsyncSocket.m in Sources */ = {isa = PBXBuildFile; fileRef = 1FA0BEA212E655AF0041C1C7 /* AsyncSocket.m */; };
-		1FA0BEAC12E657670041C1C7 /* AKDevice.m in Sources */ = {isa = PBXBuildFile; fileRef = 1FA0BEAB12E657670041C1C7 /* AKDevice.m */; };
+		1FB69E1B12E6AF56002FAF00 /* AKDevice.m in Sources */ = {isa = PBXBuildFile; fileRef = 1FB69E1A12E6AF56002FAF00 /* AKDevice.m */; };
 		8D11072B0486CEB800E47090 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 089C165CFE840E0CC02AAC07 /* InfoPlist.strings */; };
 		8D11072D0486CEB800E47090 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 29B97316FDCFA39411CA2CEA /* main.m */; settings = {ATTRIBUTES = (); }; };
 		8D11072F0486CEB800E47090 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1058C7A1FEA54F0111CA2CBB /* Cocoa.framework */; };
@@ -28,8 +28,8 @@
 		1FA0BE8E12E6537D0041C1C7 /* AKAirplayManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AKAirplayManager.m; path = AirplayKit/AKAirplayManager.m; sourceTree = "<group>"; };
 		1FA0BEA112E655AF0041C1C7 /* AsyncSocket.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AsyncSocket.h; path = AirplayKit/Sockets/AsyncSocket.h; sourceTree = SOURCE_ROOT; };
 		1FA0BEA212E655AF0041C1C7 /* AsyncSocket.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AsyncSocket.m; path = AirplayKit/Sockets/AsyncSocket.m; sourceTree = SOURCE_ROOT; };
-		1FA0BEAA12E657670041C1C7 /* AKDevice.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AKDevice.h; sourceTree = "<group>"; };
-		1FA0BEAB12E657670041C1C7 /* AKDevice.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AKDevice.m; sourceTree = "<group>"; };
+		1FB69E1912E6AF56002FAF00 /* AKDevice.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AKDevice.h; path = AirplayKit/AKDevice.h; sourceTree = SOURCE_ROOT; };
+		1FB69E1A12E6AF56002FAF00 /* AKDevice.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AKDevice.m; path = AirplayKit/AKDevice.m; sourceTree = SOURCE_ROOT; };
 		256AC3F00F4B6AF500CF3369 /* AirplayKit_Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AirplayKit_Prefix.pch; sourceTree = "<group>"; };
 		29B97316FDCFA39411CA2CEA /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		29B97324FDCFA39411CA2CEA /* AppKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AppKit.framework; path = /System/Library/Frameworks/AppKit.framework; sourceTree = "<absolute>"; };
@@ -91,8 +91,8 @@
 				1FA0BEA012E655AF0041C1C7 /* Sockets */,
 				1FA0BE8D12E6537D0041C1C7 /* AKAirplayManager.h */,
 				1FA0BE8E12E6537D0041C1C7 /* AKAirplayManager.m */,
-				1FA0BEAA12E657670041C1C7 /* AKDevice.h */,
-				1FA0BEAB12E657670041C1C7 /* AKDevice.m */,
+				1FB69E1912E6AF56002FAF00 /* AKDevice.h */,
+				1FB69E1A12E6AF56002FAF00 /* AKDevice.m */,
 			);
 			name = AirplayKit;
 			sourceTree = "<group>";
@@ -214,7 +214,7 @@
 				1FA0BE8012E6531D0041C1C7 /* AirplayKitAppDelegate.m in Sources */,
 				1FA0BE8F12E6537D0041C1C7 /* AKAirplayManager.m in Sources */,
 				1FA0BEA312E655AF0041C1C7 /* AsyncSocket.m in Sources */,
-				1FA0BEAC12E657670041C1C7 /* AKDevice.m in Sources */,
+				1FB69E1B12E6AF56002FAF00 /* AKDevice.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

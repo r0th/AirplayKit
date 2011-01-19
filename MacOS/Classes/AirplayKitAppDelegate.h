@@ -7,8 +7,10 @@
 //
 
 #import <Cocoa/Cocoa.h>
+#import "AKAirplayManager.h"
 
-@interface AirplayKitAppDelegate : NSObject <NSApplicationDelegate> {
+@interface AirplayKitAppDelegate : NSObject <NSApplicationDelegate, AKAirplayManagerDelegate>
+{
     NSWindow *window;
 }
 
