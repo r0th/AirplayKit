@@ -15,22 +15,32 @@
 - (void)applicationDidFinishLaunching:(NSNotification *)aNotification
 {
 	// Just Testing
-	AKAirplayManager *manager = [[AKAirplayManager alloc] init];
+	manager = [[AKAirplayManager alloc] init];
 	manager.delegate = self;
 	[manager findDevices];
 }
 
 - (void) manager:(AKAirplayManager *)manager didFindDevice:(AKDevice *)device
 {
-	NSLog(@"DELEGATE: Device Found");
+	[label setTitleWithMnemonic:@"Found device. Connecting..."];
 }
 
 - (void) manager:(AKAirplayManager *)manager didConnectToDevice:(AKDevice *)device
 {
-	NSLog(@"DELEGATE: Connected");
+	[label setTitleWithMnemonic:[NSString stringWithFormat:@"Connected to device : %@", device.hostname]];
+}
+
+- (IBAction) sendRemoteVideo:(id)sender
+{
+	if(manager.connectedDevice) [manager.connectedDevice sendContentURL:@"http://roozy.net/deadman.mp4"];
+}
+
+- (IBAction) droppedImage:(id)sender
+{
+	NSImageCell *cell = (NSImageCell *)sender;
+	NSImage *image = [cell image];
 	
-	// Send a content URL
-	[device sendContentURL:@"http://roozy.net/deadman.mp4"];
+	if(manager.connectedDevice) [manager.connectedDevice sendImage:image];
 }
 
 @end

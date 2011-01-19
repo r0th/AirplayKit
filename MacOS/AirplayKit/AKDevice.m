@@ -29,25 +29,22 @@
 #pragma mark -
 #pragma mark Public Methods
 
-- (void) sendHandshake
-{
-	NSLog(@"Sending handshake.");
-	self.socket.delegate = self;
-	
-	NSString *handshake = @"HTTP/1.1 101 Switching Protocols\n"
-	"Upgrade: PTTH/1.0\n"
-	"Connection: Upgrade\n"
-	"Content-Length: 0\n"
-	"User-Agent: MediaControl/1.0\n\n";
-	
-	[self sendRawMessage:handshake];
-}
-
 - (void) sendRawMessage:(NSString *)message
 {
 	self.socket.delegate = self;
 	[self.socket writeData:[message dataUsingEncoding:NSUTF8StringEncoding] withTimeout:20 tag:1];
 	[self.socket readDataWithTimeout:20.0 tag:1];
+}
+
+- (void) sendReverse
+{
+	NSString *message = @"POST /reverse HTTP/1.1\n"
+							"Content-Length: 0\n"
+							"User-Agent: MediaControl/1.0\n"
+							"Upgrade: PTTH/1.0\n"
+							"Connection: Upgrade\n\n";
+	
+	[self sendRawMessage:message];
 }
 
 - (void) sendContentURL:(NSString *)url
@@ -65,6 +62,16 @@
 	
 	[body release];
 	[message release];
+}
+
+- (void) sendImage:(NSImage *)image
+{
+	NSData *data = image.TIFFRepresentation; // May need to optimize.
+	
+	// Send the raw data
+	self.socket.delegate = self;
+	[self.socket writeData:data withTimeout:20 tag:1];
+	[self.socket readDataWithTimeout:20.0 tag:1];
 }
 
 #pragma mark -

@@ -12,8 +12,14 @@
 @interface AirplayKitAppDelegate : NSObject <NSApplicationDelegate, AKAirplayManagerDelegate>
 {
     NSWindow *window;
+	IBOutlet NSTextField *label;
+	
+	AKAirplayManager *manager;
 }
 
 @property (assign) IBOutlet NSWindow *window;
+
+- (IBAction) sendRemoteVideo:(id)sender;
+- (IBAction) droppedImage:(id)sender;
 
 @end
