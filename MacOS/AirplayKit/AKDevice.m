@@ -43,19 +43,6 @@ displayName = name;
 	[self.socket readDataWithTimeout:20.0 tag:1];
 }
 
-/*
-- (void) sendReverse
-{
-	NSString *message = @"POST /reverse HTTP/1.1\n"
-							"Content-Length: 0\n"
-							"User-Agent: MediaControl/1.0\n"
-							"Upgrade: PTTH/1.0\n"
-							"Connection: Upgrade\n\n";
-	
-	[self sendRawMessage:message];
-}
- */
-
 - (void) sendContentURL:(NSString *)url
 {	
 	NSString *body = [[NSString alloc] initWithFormat:@"Content-Location: %@\n"
@@ -89,6 +76,13 @@ displayName = name;
 	[self.socket readDataWithTimeout:20.0 tag:1];
 }
 
+- (void) sendStop
+{
+	NSString *message = @"POST /stop HTTP/1.1\n"
+						 "User-Agent: MediaControl/1.0\n\n%@";
+	[self sendRawMessage:message];
+}
+
 #pragma mark -
 #pragma mark Socket Delegate
 
@@ -103,6 +97,7 @@ displayName = name;
 
 - (void) dealloc
 {
+	[self sendStop];
 	[socket release];
 	[hostname release];
 	[super dealloc];

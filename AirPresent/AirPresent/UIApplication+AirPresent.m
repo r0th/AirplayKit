@@ -82,11 +82,20 @@ static APManager *instance;
 		airplay.delegate = self;
 	}
 	
-	[airplay findDevices];
+	if(!airplay.connectedDevice)
+	{
+		[airplay findDevices];
+	}
+	else
+	{
+		[self manager:airplay didConnectToDevice:airplay.connectedDevice];
+	}
 }
 
 - (void) stop
 {
+	[airplay.connectedDevice sendStop];
+	
 	if(runTimer)
 	{
 		[runTimer invalidate];

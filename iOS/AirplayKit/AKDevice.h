@@ -40,5 +40,6 @@
 - (void) sendRawMessage:(NSString *)message; // Sends a raw HTTP string over Airplay.
 - (void) sendContentURL:(NSString *)url;
 - (void) sendImage:(UIImage *)image;
+- (void) sendStop;
 
 @end

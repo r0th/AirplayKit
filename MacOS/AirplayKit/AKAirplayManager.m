@@ -115,7 +115,7 @@
 
 - (void) dealloc
 {
-	[connectedDevice dealloc];
+	[connectedDevice release];
 	[foundServices removeAllObjects];
 	[foundServices release];
 	

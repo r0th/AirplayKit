@@ -43,10 +43,13 @@
 {
 	NSLog(@"Connecting to device : %@:%d", device.hostname, device.port);
 	
-	tempDevice = [device retain];
-	
-	AsyncSocket *socket = [[AsyncSocket alloc] initWithDelegate:self];
-	[socket connectToHost:device.hostname onPort:device.port error:NULL];
+	if(!tempDevice)
+	{
+		tempDevice = [device retain];
+		
+		AsyncSocket *socket = [[AsyncSocket alloc] initWithDelegate:self];
+		[socket connectToHost:device.hostname onPort:device.port error:NULL];
+	}
 }
 
 #pragma mark -
@@ -115,7 +118,7 @@
 
 - (void) dealloc
 {
-	[connectedDevice dealloc];
+	[connectedDevice release];
 	[foundServices removeAllObjects];
 	[foundServices release];
 	
