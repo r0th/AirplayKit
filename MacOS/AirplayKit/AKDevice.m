@@ -77,7 +77,7 @@ displayName = name;
 {
 	NSData *imageData = image.TIFFRepresentation; // May need to optimize.
 	int length = [imageData length];
-	NSString *message = [[NSString alloc] initWithFormat:@"POST /photo HTTP/1.1\n"
+	NSString *message = [[NSString alloc] initWithFormat:@"PUT /photo HTTP/1.1\n"
 						 "Content-Length: %d\n"
 						 "User-Agent: MediaControl/1.0\n\n", length];
 	NSMutableData *messageData = [[NSMutableData alloc] initWithData:[message dataUsingEncoding:NSUTF8StringEncoding]];
