@@ -29,6 +29,7 @@
 
 #pragma mark -
 #pragma mark Public Methods
+
 - (void) findDevices
 {
 	NSLog(@"Finding Airport devices.");
@@ -41,6 +42,8 @@
 - (void) connectToDevice:(AKDevice *)device
 {
 	NSLog(@"Connecting to device : %@:%d", device.hostname, device.port);
+	
+	tempDevice = device;
 	
 	AsyncSocket *socket = [[AsyncSocket alloc] initWithDelegate:self];
 	[socket connectToHost:device.hostname onPort:device.port error:NULL];
@@ -93,14 +96,13 @@
 {
 	NSLog(@"Connected to device.");
 	
-	AKDevice *device = [[AKDevice alloc] init];
-	device.hostname = host;
-	device.port = port;
+	AKDevice *device = tempDevice;
 	device.socket = sock;
 	device.connected = YES;
 	
 	self.connectedDevice = device;
 	[device release];
+	tempDevice = nil;
 	
 	if(delegate && [delegate respondsToSelector:@selector(manager:didConnectToDevice:)])
 	{

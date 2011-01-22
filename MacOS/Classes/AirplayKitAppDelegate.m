@@ -22,12 +22,12 @@
 
 - (void) manager:(AKAirplayManager *)manager didFindDevice:(AKDevice *)device
 {
-	[label setTitleWithMnemonic:@"Found device. Connecting..."];
+	[label setStringValue:@"Found device. Connecting..."];
 }
 
 - (void) manager:(AKAirplayManager *)manager didConnectToDevice:(AKDevice *)device
 {
-	[label setTitleWithMnemonic:[NSString stringWithFormat:@"Connected to device : %@", device.hostname]];
+	[label setStringValue:[NSString stringWithFormat:@"Connected to device : %@", device.hostname]];
 }
 
 - (IBAction) sendRemoteVideo:(id)sender

@@ -28,6 +28,7 @@
 	BOOL autoConnect;
 	NSNetServiceBrowser *serviceBrowser;
 	AKDevice *connectedDevice;
+	AKDevice *tempDevice;
 	NSMutableArray *foundServices;
 }
 

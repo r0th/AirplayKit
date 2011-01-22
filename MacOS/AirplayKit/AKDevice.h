@@ -28,6 +28,7 @@
 	id <AKDeviceDelegate> delegate;
 	BOOL connected;
 	AsyncSocket *socket;
+	NSData *savedData;
 }
 
 @property (nonatomic, retain) NSString *hostname;
@@ -37,7 +38,6 @@
 @property (nonatomic, retain) AsyncSocket *socket; // The socket used to transmit data. Only use for completely custom actions.
 
 - (void) sendRawMessage:(NSString *)message; // Sends a raw HTTP string over Airplay.
-- (void) sendReverse;
 - (void) sendContentURL:(NSString *)url;
 - (void) sendImage:(NSImage *)image;
 
