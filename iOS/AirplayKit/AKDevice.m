@@ -3,7 +3,7 @@
 //  AirplayKit
 //
 //  Created by Andy Roth on 1/18/11.
-//  Copyright 2011 Resource Interactive. All rights reserved.
+//  Copyright 2011 Roozy. All rights reserved.
 //
 
 #import "AKDevice.h"
@@ -18,7 +18,7 @@
 
 - (id) init
 {
-	if(self = [super init])
+	if((self = [super init]))
 	{
 		connected = NO;
 	}
