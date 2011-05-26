@@ -18,7 +18,7 @@
 
 - (id) init
 {
-	if(self = [super init])
+	if((self = [super init]))
 	{
 		self.autoConnect = YES;
 		foundServices = [[NSMutableArray alloc] init];
@@ -109,6 +109,7 @@
 	
 	if(delegate && [delegate respondsToSelector:@selector(manager:didConnectToDevice:)])
 	{
+		[self.connectedDevice sendReverse];
 		[delegate manager:self didConnectToDevice:self.connectedDevice];
 	}
 }

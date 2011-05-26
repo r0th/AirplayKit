@@ -1,0 +1,360 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		1F6091A5138E9FD10093DE6C /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1F6091A4138E9FD10093DE6C /* UIKit.framework */; };
+		1F6091A7138E9FD10093DE6C /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1F6091A6138E9FD10093DE6C /* Foundation.framework */; };
+		1F6091A9138E9FD10093DE6C /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1F6091A8138E9FD10093DE6C /* CoreGraphics.framework */; };
+		1F6091AF138E9FD10093DE6C /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 1F6091AD138E9FD10093DE6C /* InfoPlist.strings */; };
+		1F6091B2138E9FD10093DE6C /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 1F6091B1138E9FD10093DE6C /* main.m */; };
+		1F6091B5138E9FD10093DE6C /* AirCamAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 1F6091B4138E9FD10093DE6C /* AirCamAppDelegate.m */; };
+		1F6091B8138E9FD10093DE6C /* MainWindow.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1F6091B6138E9FD10093DE6C /* MainWindow.xib */; };
+		1F6091BB138E9FD10093DE6C /* AirCamViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1F6091BA138E9FD10093DE6C /* AirCamViewController.m */; };
+		1F6091BE138E9FD10093DE6C /* AirCamViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1F6091BC138E9FD10093DE6C /* AirCamViewController.xib */; };
+		1F6091CC138E9FE50093DE6C /* AKAirplayManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 1F6091C6138E9FE50093DE6C /* AKAirplayManager.m */; };
+		1F6091CD138E9FE50093DE6C /* AKDevice.m in Sources */ = {isa = PBXBuildFile; fileRef = 1F6091C8138E9FE50093DE6C /* AKDevice.m */; };
+		1F6091CE138E9FE50093DE6C /* AsyncSocket.m in Sources */ = {isa = PBXBuildFile; fileRef = 1F6091CB138E9FE50093DE6C /* AsyncSocket.m */; };
+		1F6091D0138EA0000093DE6C /* CFNetwork.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1F6091CF138EA0000093DE6C /* CFNetwork.framework */; };
+		1F6091D3138EA03F0093DE6C /* CameraImageHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = 1F6091D2138EA03F0093DE6C /* CameraImageHelper.m */; };
+		1F6091D5138EA04E0093DE6C /* CoreVideo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1F6091D4138EA04E0093DE6C /* CoreVideo.framework */; };
+		1F6091D7138EA0690093DE6C /* CoreMedia.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1F6091D6138EA0690093DE6C /* CoreMedia.framework */; };
+		1F6091E1138EA08D0093DE6C /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1F6091E0138EA08D0093DE6C /* QuartzCore.framework */; };
+		1F6091E3138EA0910093DE6C /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1F6091E2138EA0910093DE6C /* AVFoundation.framework */; };
+		1FFBBA45138EC94D000CE68C /* DKRoundedRectView.m in Sources */ = {isa = PBXBuildFile; fileRef = 1FFBBA42138EC94D000CE68C /* DKRoundedRectView.m */; };
+		1FFBBA46138EC94D000CE68C /* DKToast.m in Sources */ = {isa = PBXBuildFile; fileRef = 1FFBBA44138EC94D000CE68C /* DKToast.m */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		1F6091A0138E9FD10093DE6C /* AirCam.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AirCam.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		1F6091A4138E9FD10093DE6C /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
+		1F6091A6138E9FD10093DE6C /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		1F6091A8138E9FD10093DE6C /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
+		1F6091AC138E9FD10093DE6C /* AirCam-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "AirCam-Info.plist"; sourceTree = "<group>"; };
+		1F6091AE138E9FD10093DE6C /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		1F6091B0138E9FD10093DE6C /* AirCam-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "AirCam-Prefix.pch"; sourceTree = "<group>"; };
+		1F6091B1138E9FD10093DE6C /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		1F6091B3138E9FD10093DE6C /* AirCamAppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AirCamAppDelegate.h; sourceTree = "<group>"; };
+		1F6091B4138E9FD10093DE6C /* AirCamAppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AirCamAppDelegate.m; sourceTree = "<group>"; };
+		1F6091B7138E9FD10093DE6C /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/MainWindow.xib; sourceTree = "<group>"; };
+		1F6091B9138E9FD10093DE6C /* AirCamViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AirCamViewController.h; sourceTree = "<group>"; };
+		1F6091BA138E9FD10093DE6C /* AirCamViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AirCamViewController.m; sourceTree = "<group>"; };
+		1F6091BD138E9FD10093DE6C /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/AirCamViewController.xib; sourceTree = "<group>"; };
+		1F6091C5138E9FE50093DE6C /* AKAirplayManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AKAirplayManager.h; sourceTree = "<group>"; };
+		1F6091C6138E9FE50093DE6C /* AKAirplayManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AKAirplayManager.m; sourceTree = "<group>"; };
+		1F6091C7138E9FE50093DE6C /* AKDevice.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AKDevice.h; sourceTree = "<group>"; };
+		1F6091C8138E9FE50093DE6C /* AKDevice.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AKDevice.m; sourceTree = "<group>"; };
+		1F6091CA138E9FE50093DE6C /* AsyncSocket.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AsyncSocket.h; sourceTree = "<group>"; };
+		1F6091CB138E9FE50093DE6C /* AsyncSocket.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AsyncSocket.m; sourceTree = "<group>"; };
+		1F6091CF138EA0000093DE6C /* CFNetwork.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CFNetwork.framework; path = System/Library/Frameworks/CFNetwork.framework; sourceTree = SDKROOT; };
+		1F6091D1138EA03F0093DE6C /* CameraImageHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CameraImageHelper.h; sourceTree = "<group>"; };
+		1F6091D2138EA03F0093DE6C /* CameraImageHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CameraImageHelper.m; sourceTree = "<group>"; };
+		1F6091D4138EA04E0093DE6C /* CoreVideo.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreVideo.framework; path = System/Library/Frameworks/CoreVideo.framework; sourceTree = SDKROOT; };
+		1F6091D6138EA0690093DE6C /* CoreMedia.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreMedia.framework; path = System/Library/Frameworks/CoreMedia.framework; sourceTree = SDKROOT; };
+		1F6091E0138EA08D0093DE6C /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
+		1F6091E2138EA0910093DE6C /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
+		1FFBBA41138EC94D000CE68C /* DKRoundedRectView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DKRoundedRectView.h; sourceTree = "<group>"; };
+		1FFBBA42138EC94D000CE68C /* DKRoundedRectView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DKRoundedRectView.m; sourceTree = "<group>"; };
+		1FFBBA43138EC94D000CE68C /* DKToast.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DKToast.h; sourceTree = "<group>"; };
+		1FFBBA44138EC94D000CE68C /* DKToast.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DKToast.m; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		1F60919D138E9FD10093DE6C /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				1F6091E3138EA0910093DE6C /* AVFoundation.framework in Frameworks */,
+				1F6091E1138EA08D0093DE6C /* QuartzCore.framework in Frameworks */,
+				1F6091D7138EA0690093DE6C /* CoreMedia.framework in Frameworks */,
+				1F6091D5138EA04E0093DE6C /* CoreVideo.framework in Frameworks */,
+				1F6091D0138EA0000093DE6C /* CFNetwork.framework in Frameworks */,
+				1F6091A5138E9FD10093DE6C /* UIKit.framework in Frameworks */,
+				1F6091A7138E9FD10093DE6C /* Foundation.framework in Frameworks */,
+				1F6091A9138E9FD10093DE6C /* CoreGraphics.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		1F609195138E9FD10093DE6C = {
+			isa = PBXGroup;
+			children = (
+				1F6091AA138E9FD10093DE6C /* AirCam */,
+				1F6091A3138E9FD10093DE6C /* Frameworks */,
+				1F6091A1138E9FD10093DE6C /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		1F6091A1138E9FD10093DE6C /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				1F6091A0138E9FD10093DE6C /* AirCam.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		1F6091A3138E9FD10093DE6C /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				1F6091E2138EA0910093DE6C /* AVFoundation.framework */,
+				1F6091E0138EA08D0093DE6C /* QuartzCore.framework */,
+				1F6091D6138EA0690093DE6C /* CoreMedia.framework */,
+				1F6091D4138EA04E0093DE6C /* CoreVideo.framework */,
+				1F6091CF138EA0000093DE6C /* CFNetwork.framework */,
+				1F6091A4138E9FD10093DE6C /* UIKit.framework */,
+				1F6091A6138E9FD10093DE6C /* Foundation.framework */,
+				1F6091A8138E9FD10093DE6C /* CoreGraphics.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		1F6091AA138E9FD10093DE6C /* AirCam */ = {
+			isa = PBXGroup;
+			children = (
+				1F6091C4138E9FE50093DE6C /* AirplayKit */,
+				1F6091B3138E9FD10093DE6C /* AirCamAppDelegate.h */,
+				1F6091B4138E9FD10093DE6C /* AirCamAppDelegate.m */,
+				1FFBBA41138EC94D000CE68C /* DKRoundedRectView.h */,
+				1FFBBA42138EC94D000CE68C /* DKRoundedRectView.m */,
+				1FFBBA43138EC94D000CE68C /* DKToast.h */,
+				1FFBBA44138EC94D000CE68C /* DKToast.m */,
+				1F6091D1138EA03F0093DE6C /* CameraImageHelper.h */,
+				1F6091D2138EA03F0093DE6C /* CameraImageHelper.m */,
+				1F6091B6138E9FD10093DE6C /* MainWindow.xib */,
+				1F6091B9138E9FD10093DE6C /* AirCamViewController.h */,
+				1F6091BA138E9FD10093DE6C /* AirCamViewController.m */,
+				1F6091BC138E9FD10093DE6C /* AirCamViewController.xib */,
+				1F6091AB138E9FD10093DE6C /* Supporting Files */,
+			);
+			path = AirCam;
+			sourceTree = "<group>";
+		};
+		1F6091AB138E9FD10093DE6C /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				1F6091AC138E9FD10093DE6C /* AirCam-Info.plist */,
+				1F6091AD138E9FD10093DE6C /* InfoPlist.strings */,
+				1F6091B0138E9FD10093DE6C /* AirCam-Prefix.pch */,
+				1F6091B1138E9FD10093DE6C /* main.m */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		1F6091C4138E9FE50093DE6C /* AirplayKit */ = {
+			isa = PBXGroup;
+			children = (
+				1F6091C5138E9FE50093DE6C /* AKAirplayManager.h */,
+				1F6091C6138E9FE50093DE6C /* AKAirplayManager.m */,
+				1F6091C7138E9FE50093DE6C /* AKDevice.h */,
+				1F6091C8138E9FE50093DE6C /* AKDevice.m */,
+				1F6091C9138E9FE50093DE6C /* Sockets */,
+			);
+			name = AirplayKit;
+			path = ../../iOS/AirplayKit;
+			sourceTree = "<group>";
+		};
+		1F6091C9138E9FE50093DE6C /* Sockets */ = {
+			isa = PBXGroup;
+			children = (
+				1F6091CA138E9FE50093DE6C /* AsyncSocket.h */,
+				1F6091CB138E9FE50093DE6C /* AsyncSocket.m */,
+			);
+			path = Sockets;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		1F60919F138E9FD10093DE6C /* AirCam */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 1F6091C1138E9FD10093DE6C /* Build configuration list for PBXNativeTarget "AirCam" */;
+			buildPhases = (
+				1F60919C138E9FD10093DE6C /* Sources */,
+				1F60919D138E9FD10093DE6C /* Frameworks */,
+				1F60919E138E9FD10093DE6C /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = AirCam;
+			productName = AirCam;
+			productReference = 1F6091A0138E9FD10093DE6C /* AirCam.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		1F609197138E9FD10093DE6C /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				ORGANIZATIONNAME = Roozy;
+			};
+			buildConfigurationList = 1F60919A138E9FD10093DE6C /* Build configuration list for PBXProject "AirCam" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+			);
+			mainGroup = 1F609195138E9FD10093DE6C;
+			productRefGroup = 1F6091A1138E9FD10093DE6C /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				1F60919F138E9FD10093DE6C /* AirCam */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		1F60919E138E9FD10093DE6C /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				1F6091AF138E9FD10093DE6C /* InfoPlist.strings in Resources */,
+				1F6091B8138E9FD10093DE6C /* MainWindow.xib in Resources */,
+				1F6091BE138E9FD10093DE6C /* AirCamViewController.xib in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		1F60919C138E9FD10093DE6C /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				1F6091B2138E9FD10093DE6C /* main.m in Sources */,
+				1F6091B5138E9FD10093DE6C /* AirCamAppDelegate.m in Sources */,
+				1F6091BB138E9FD10093DE6C /* AirCamViewController.m in Sources */,
+				1F6091CC138E9FE50093DE6C /* AKAirplayManager.m in Sources */,
+				1F6091CD138E9FE50093DE6C /* AKDevice.m in Sources */,
+				1F6091CE138E9FE50093DE6C /* AsyncSocket.m in Sources */,
+				1F6091D3138EA03F0093DE6C /* CameraImageHelper.m in Sources */,
+				1FFBBA45138EC94D000CE68C /* DKRoundedRectView.m in Sources */,
+				1FFBBA46138EC94D000CE68C /* DKToast.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXVariantGroup section */
+		1F6091AD138E9FD10093DE6C /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				1F6091AE138E9FD10093DE6C /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+		1F6091B6138E9FD10093DE6C /* MainWindow.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				1F6091B7138E9FD10093DE6C /* en */,
+			);
+			name = MainWindow.xib;
+			sourceTree = "<group>";
+		};
+		1F6091BC138E9FD10093DE6C /* AirCamViewController.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				1F6091BD138E9FD10093DE6C /* en */,
+			);
+			name = AirCamViewController.xib;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		1F6091BF138E9FD10093DE6C /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = DEBUG;
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_VERSION = com.apple.compilers.llvmgcc42;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 4.3;
+				SDKROOT = iphoneos;
+			};
+			name = Debug;
+		};
+		1F6091C0138E9FD10093DE6C /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_VERSION = com.apple.compilers.llvmgcc42;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 4.3;
+				OTHER_CFLAGS = "-DNS_BLOCK_ASSERTIONS=1";
+				SDKROOT = iphoneos;
+			};
+			name = Release;
+		};
+		1F6091C2138E9FD10093DE6C /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				COPY_PHASE_STRIP = NO;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "AirCam/AirCam-Prefix.pch";
+				INFOPLIST_FILE = "AirCam/AirCam-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Debug;
+		};
+		1F6091C3138E9FD10093DE6C /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				COPY_PHASE_STRIP = YES;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "AirCam/AirCam-Prefix.pch";
+				INFOPLIST_FILE = "AirCam/AirCam-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				VALIDATE_PRODUCT = YES;
+				WRAPPER_EXTENSION = app;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		1F60919A138E9FD10093DE6C /* Build configuration list for PBXProject "AirCam" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				1F6091BF138E9FD10093DE6C /* Debug */,
+				1F6091C0138E9FD10093DE6C /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		1F6091C1138E9FD10093DE6C /* Build configuration list for PBXNativeTarget "AirCam" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				1F6091C2138E9FD10093DE6C /* Debug */,
+				1F6091C3138E9FD10093DE6C /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 1F609197138E9FD10093DE6C /* Project object */;
+}

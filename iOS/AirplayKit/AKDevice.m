@@ -12,6 +12,7 @@
 @implementation AKDevice
 
 @synthesize hostname, port, delegate, connected, socket;
+@synthesize imageQuality = _imageQuality;
 
 #pragma mark -
 #pragma mark Initialization
@@ -21,6 +22,7 @@
 	if((self = [super init]))
 	{
 		connected = NO;
+		_imageQuality = 0.8;
 	}
 	
 	return self;
@@ -54,13 +56,13 @@
 
 - (void) sendContentURL:(NSString *)url
 {	
-	NSString *body = [[NSString alloc] initWithFormat:@"Content-Location: %@\n"
-														"Start-Position: 0\n\n", url];
+	NSString *body = [[NSString alloc] initWithFormat:@"Content-Location: %@\r\n"
+														"Start-Position: 0\r\n\r\n", url];
 	int length = [body length];
 	
-	NSString *message = [[NSString alloc] initWithFormat:@"POST /play HTTP/1.1\n"
-															 "Content-Length: %d\n"
-															 "User-Agent: MediaControl/1.0\n\n%@", length, body];
+	NSString *message = [[NSString alloc] initWithFormat:@"POST /play HTTP/1.1\r\n"
+															 "Content-Length: %d\r\n"
+															 "User-Agent: MediaControl/1.0\r\n\r\n%@", length, body];
 	
 	
 	[self sendRawMessage:message];
@@ -75,25 +77,37 @@
 	{
 		okToSend = NO;
 		
-		NSData *imageData = UIImageJPEGRepresentation(image, 1.0);
+		NSData *imageData = UIImageJPEGRepresentation(image, _imageQuality);
 		int length = [imageData length];
-		NSString *message = [[NSString alloc] initWithFormat:@"PUT /photo HTTP/1.1\n"
-							 "Content-Length: %d\n"
-							 "User-Agent: MediaControl/1.0\n\n", length];
+		NSString *message = [[NSString alloc] initWithFormat:@"PUT /photo HTTP/1.1\r\n"
+							 "Content-Length: %d\r\n"
+							 "User-Agent: MediaControl/1.0\r\n\r\n", length];
 		NSMutableData *messageData = [[NSMutableData alloc] initWithData:[message dataUsingEncoding:NSUTF8StringEncoding]];
 		[messageData appendData:imageData];
 		
 		// Send the raw data
 		self.socket.delegate = self;
-		[self.socket writeData:messageData withTimeout:20 tag:1];
+		[self.socket writeData:messageData withTimeout:20.0 tag:1];
 		[self.socket readDataWithTimeout:20.0 tag:1];
 	}
 }
 
 - (void) sendStop
 {
-	NSString *message = @"POST /stop HTTP/1.1\n"
-	"User-Agent: MediaControl/1.0\n\n%@";
+	NSString *message = @"POST /stop HTTP/1.1\r\n"
+	"User-Agent: MediaControl/1.0\r\n\r\n";
+	[self sendRawMessage:message];
+}
+
+- (void) sendReverse
+{
+	NSString *message = @"POST /reverse HTTP/1.1\r\n"
+	"Upgrade: PTTH/1.0\r\n"
+	"Connection: Upgrade\r\n"
+	"X-Apple-Purpose: event\r\n"
+	"Content-Length: 0\r\n"
+	"User-Agent: MediaControl/1.0\r\n\r\n";
+	
 	[self sendRawMessage:message];
 }
 
