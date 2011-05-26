@@ -26,12 +26,21 @@
 	return self;
 }
 
-/*
-NSString *name = [hostname stringByReplacingCharactersInRange:[hostname rangeOfString:@"-"] withString:@" "];
-name = [name stringByReplacingCharactersInRange:[name rangeOfString:@".local."] withString:@""];
+- (NSString *) displayName
+{
+	NSString *name = hostname;
+	if([hostname rangeOfString:@"-"].length != 0)
+	{
+		name = [hostname stringByReplacingCharactersInRange:[hostname rangeOfString:@"-"] withString:@" "];
+	}
 	
-displayName = name;
- */
+	if([name rangeOfString:@".local."].length != 0)
+	{
+		name = [name stringByReplacingCharactersInRange:[name rangeOfString:@".local."] withString:@""];
+	}
+	
+	return name;
+}
 
 #pragma mark -
 #pragma mark Public Methods
@@ -62,18 +71,23 @@ displayName = name;
 
 - (void) sendImage:(UIImage *)image
 {
-	NSData *imageData = UIImageJPEGRepresentation(image, 1.0);
-	int length = [imageData length];
-	NSString *message = [[NSString alloc] initWithFormat:@"PUT /photo HTTP/1.1\n"
-						 "Content-Length: %d\n"
-						 "User-Agent: MediaControl/1.0\n\n", length];
-	NSMutableData *messageData = [[NSMutableData alloc] initWithData:[message dataUsingEncoding:NSUTF8StringEncoding]];
-	[messageData appendData:imageData];
-	
-	// Send the raw data
-	self.socket.delegate = self;
-	[self.socket writeData:messageData withTimeout:20 tag:1];
-	[self.socket readDataWithTimeout:20.0 tag:1];
+	if(okToSend)
+	{
+		okToSend = NO;
+		
+		NSData *imageData = UIImageJPEGRepresentation(image, 1.0);
+		int length = [imageData length];
+		NSString *message = [[NSString alloc] initWithFormat:@"PUT /photo HTTP/1.1\n"
+							 "Content-Length: %d\n"
+							 "User-Agent: MediaControl/1.0\n\n", length];
+		NSMutableData *messageData = [[NSMutableData alloc] initWithData:[message dataUsingEncoding:NSUTF8StringEncoding]];
+		[messageData appendData:imageData];
+		
+		// Send the raw data
+		self.socket.delegate = self;
+		[self.socket writeData:messageData withTimeout:20 tag:1];
+		[self.socket readDataWithTimeout:20.0 tag:1];
+	}
 }
 
 - (void) sendStop
@@ -90,6 +104,8 @@ displayName = name;
 {
 	NSString *message = [[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding];
 	NSLog(@"Recevied raw : %@", message);
+	
+	okToSend = YES;
 }
 
 #pragma mark -

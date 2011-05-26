@@ -28,9 +28,10 @@
 	id <AKDeviceDelegate> delegate;
 	BOOL connected;
 	AsyncSocket *socket;
-	NSData *savedData;
+	BOOL okToSend;
 }
 
+@property (nonatomic, readonly) NSString *displayName;
 @property (nonatomic, retain) NSString *hostname;
 @property (nonatomic) UInt16 port;
 @property (nonatomic, assign) id <AKDeviceDelegate> delegate;
