@@ -31,10 +31,10 @@
 {
 	[DKToast showToast:@"Connected. Sending camera over Airplay." duration:DKToastDurationLong];
 	
-	manager.connectedDevice.imageQuality = 0.20f;
+	manager.connectedDevice.imageQuality = 0;
 	
 	// Start a timer to send the images
-	runTimer = [[NSTimer scheduledTimerWithTimeInterval:0.02 target:self selector:@selector(sendImage) userInfo:nil repeats:YES] retain];
+	runTimer = [[NSTimer scheduledTimerWithTimeInterval:0.1 target:self selector:@selector(sendImage) userInfo:nil repeats:YES] retain];
 }
 
 #pragma mark -
@@ -42,13 +42,21 @@
 
 - (void) sendImage
 {
-	[manager.connectedDevice sendImage:[CameraImageHelper image]];
+	[manager.connectedDevice sendImage:[CameraImageHelper image] forceReady:YES];
+}
+
+- (void) stop
+{
+	[runTimer invalidate];
+	[manager.connectedDevice sendStop];
 }
 
 #pragma mark - Cleanup
 
 - (void) dealloc
 {
+	[runTimer invalidate];
+	[runTimer release];
 	[manager release];
 	[CameraImageHelper stopRunning];
 	[super dealloc];

@@ -47,11 +47,21 @@
 #pragma mark -
 #pragma mark Public Methods
 
-- (void) sendRawMessage:(NSString *)message
+- (void) sendRawData:(NSData *)data
 {
 	self.socket.delegate = self;
-	[self.socket writeData:[message dataUsingEncoding:NSUTF8StringEncoding] withTimeout:20 tag:1];
+	[self.socket writeData:data withTimeout:20 tag:1];
 	[self.socket readDataWithTimeout:20.0 tag:1];
+}
+
+- (void) sendRawMessage:(NSString *)message
+{
+	if(!okToSend)
+	{
+		queuedMessage = [message retain];
+	}
+	
+	[self sendRawData:[message dataUsingEncoding:NSUTF8StringEncoding]];
 }
 
 - (void) sendContentURL:(NSString *)url
@@ -71,6 +81,12 @@
 	[message release];
 }
 
+- (void) sendImage:(UIImage *)image forceReady:(BOOL)ready
+{
+	if(ready) okToSend = YES;
+	[self sendImage:image];
+}
+
 - (void) sendImage:(UIImage *)image
 {
 	if(okToSend)
@@ -86,9 +102,10 @@
 		[messageData appendData:imageData];
 		
 		// Send the raw data
-		self.socket.delegate = self;
-		[self.socket writeData:messageData withTimeout:20.0 tag:1];
-		[self.socket readDataWithTimeout:20.0 tag:1];
+		[self sendRawData:messageData];
+		
+		[messageData release];
+		[message release];
 	}
 }
 
@@ -108,7 +125,7 @@
 	"Content-Length: 0\r\n"
 	"User-Agent: MediaControl/1.0\r\n\r\n";
 	
-	[self sendRawMessage:message];
+	[self sendRawData:[message dataUsingEncoding:NSUTF8StringEncoding]];
 }
 
 #pragma mark -
@@ -116,10 +133,20 @@
 
 - (void)onSocket:(AsyncSocket *)sock didReadData:(NSData *)data withTag:(long)tag
 {
-	NSString *message = [[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding];
-	NSLog(@"Recevied raw : %@", message);
+	if([delegate respondsToSelector:@selector(device:didSendBackMessage:)])
+	{
+		NSString *message = [[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding];
+		[delegate device:self didSendBackMessage:[message autorelease]];
+	}
 	
 	okToSend = YES;
+	
+	if(queuedMessage)
+	{
+		[self sendRawData:[queuedMessage dataUsingEncoding:NSUTF8StringEncoding]];
+		[queuedMessage release];
+		queuedMessage = nil;
+	}
 }
 
 #pragma mark -

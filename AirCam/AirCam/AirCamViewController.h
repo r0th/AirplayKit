@@ -16,4 +16,6 @@
 	NSTimer *runTimer;
 }
 
+- (void) stop;
+
 @end
